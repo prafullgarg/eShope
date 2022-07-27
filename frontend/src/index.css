@@ -1,0 +1,140 @@
+/* In html selector we have defined font-size property
+   where 62.5% means 10px because default font size in 
+   browsers is generly 16px  10px=16*0.625 ,1rem=16px 
+   10px=0.625rem  */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /*removes default margins*/
+  height: 100vh;
+  /*100vh=100% height of the veiwport */
+  font-size: 2rem;
+  font-family: Helvetica, sans-serif, Arial;
+  /*browser reads font family in left to right order if browser 
+    dosn't support helvetica it will use sans-serif and so on*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+}
+
+/*grid container style the page in form of grid each element will be either a row or column
+and display:grid fulfills this purpose*/
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  /*grid-template-areas this property defines the number of rows in the column with there name*/
+  grid-template-columns: 1fr;
+  /*1fr fr is an fractional unit in css. 1 fr means 1 fraction if there are 5 columns they will 
+    be equal size the 1 fr will be 20% in case of 10 columns 1 fr will be 10%*/
+  grid-template-rows: 5rem 1fr 5rem;
+  /* 5 rem is 5% height of the root element there 1 fr is remaining 90% height*/
+  height: 100%;
+}
+
+header {
+  grid-area: 'header';
+  /*It defines it is part of grid system*/
+  background-color: #203040;
+}
+
+main {
+  grid-area: 'main';
+  /*It defines it is part of grid system*/
+  margin: 0;
+  padding: 1rem;
+}
+
+footer {
+  grid-area: 'footer';
+  /*It defines it is part of grid system*/
+  background-color: #203040;
+  color: aliceblue;
+}
+
+/*customizing class for row styling*/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  /*removes any additional styling  from the text like underline*/
+}
+
+/*when we hover our cursor over the ancher tag this class css will be applied*/
+a:hover {
+  color: orange;
+}
+
+header a:hover {
+  border: 2px white solid;
+}
+
+/*includes anchor tags for header section only*/
+header a {
+  color: white;
+  padding: 1rem;
+}
+
+/*element a with class name brand*/
+a.brand {
+  font-size: 3rem;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+/* custom class for aligning elements in center*/
+.center {
+  justify-content: center;
+}
+
+img {
+  border-radius: 0.5rem;
+}
+
+img.medium {
+  max-width: 29rem;
+  height: 100%;
+}
+
+.card {
+  border: 0.1rem #c0c0c0 solid;
+  border-radius: 0.5rem;
+  background-color: #f0f0f0;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body>* {
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+
+.rating span {
+  color: orange;
+  margin: 0.1rem;
+}
+
+.price {
+  font-size: 2rem;
+}
